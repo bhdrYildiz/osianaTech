@@ -10,7 +10,7 @@ function CurvedMarquee() {
 
   useAnimationFrame((t, delta) => {
     const currentX = x.get();
-    const speed = 150; // px per second
+    const speed = 90; // px per second
     const newX = currentX - (speed * delta) / 1000;
 
     // Text genişliğini tahmin et (yaklaşık)
@@ -33,7 +33,6 @@ function CurvedMarquee() {
           <span
             key={i}
             className="text-[120px] md:text-[140px] lg:text-[180px] xl:text-[220px] font-bold tracking-tight text-black/10 select-none mx-8"
-            style={{ transform: 'rotate(-2deg)' }}
           >
             {text}
           </span>
@@ -95,66 +94,72 @@ export default function Contact() {
                 </div>
                 <span className="text-base text-black">info@example.com</span>
               </div>
+
+              {/* Submit Button */}
+              <div className="pt-4 flex justify-end mr-12">
+                <RevoraButton href="#contact" textColor="text-black">
+                  Send Message
+                </RevoraButton>
+              </div>
             </div>
           </div>
 
           {/* Sağ taraf - Contact Form */}
           <div className="flex flex-col justify-center">
             <form className="space-y-6">
-              {/* Name */}
-              <div className="relative">
-                <label className="block text-sm font-medium text-black mb-2">Name</label>
-                <input
-                  type="text"
-                  className="w-full bg-transparent border-0 border-b-2 border-black/10 px-0 py-3 text-sm outline-none focus:border-[rgb(var(--neon))] transition-colors"
-                  placeholder=""
-                />
+              {/* İlk satır - Name ve Email */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Name */}
+                <div className="relative">
+                  <label className="block text-sm font-medium text-black/60 mb-2">Name</label>
+                  <input
+                    type="text"
+                    className="w-full bg-transparent border-0 border-b-2 border-black/10 px-0 py-3 text-sm text-black outline-none focus:border-[rgb(var(--neon))] transition-colors placeholder:text-black/40"
+                    placeholder=""
+                  />
+                </div>
+
+                {/* Email */}
+                <div className="relative">
+                  <label className="block text-sm font-medium text-black/60 mb-2">Email</label>
+                  <input
+                    type="email"
+                    className="w-full bg-transparent border-0 border-b-2 border-black/10 px-0 py-3 text-sm text-black outline-none focus:border-[rgb(var(--neon))] transition-colors placeholder:text-black/40"
+                    placeholder=""
+                  />
+                </div>
               </div>
 
-              {/* Email */}
-              <div className="relative">
-                <label className="block text-sm font-medium text-black mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full bg-transparent border-0 border-b-2 border-black/10 px-0 py-3 text-sm outline-none focus:border-[rgb(var(--neon))] transition-colors"
-                  placeholder=""
-                />
+              {/* İkinci satır - Phone ve Subject */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Phone */}
+                <div className="relative">
+                  <label className="block text-sm font-medium text-black/60 mb-2">Phone</label>
+                  <input
+                    type="tel"
+                    className="w-full bg-transparent border-0 border-b-2 border-black/10 px-0 py-3 text-sm text-black outline-none focus:border-[rgb(var(--neon))] transition-colors placeholder:text-black/40"
+                    placeholder=""
+                  />
+                </div>
+
+                {/* Subject */}
+                <div className="relative">
+                  <label className="block text-sm font-medium text-black/60 mb-2">Subject</label>
+                  <input
+                    type="text"
+                    className="w-full bg-transparent border-0 border-b-2 border-black/10 px-0 py-3 text-sm text-black outline-none focus:border-[rgb(var(--neon))] transition-colors placeholder:text-black/40"
+                    placeholder=""
+                  />
+                </div>
               </div>
 
-              {/* Phone */}
+              {/* Üçüncü satır - Message (tam genişlik) */}
               <div className="relative">
-                <label className="block text-sm font-medium text-black mb-2">Phone</label>
-                <input
-                  type="tel"
-                  className="w-full bg-transparent border-0 border-b-2 border-black/10 px-0 py-3 text-sm outline-none focus:border-[rgb(var(--neon))] transition-colors"
-                  placeholder=""
-                />
-              </div>
-
-              {/* Subject */}
-              <div className="relative">
-                <label className="block text-sm font-medium text-black mb-2">Subject</label>
-                <input
-                  type="text"
-                  className="w-full bg-transparent border-0 border-b-2 border-black/10 px-0 py-3 text-sm outline-none focus:border-[rgb(var(--neon))] transition-colors"
-                  placeholder=""
-                />
-              </div>
-
-              {/* Message */}
-              <div className="relative">
-                <label className="block text-sm font-medium text-black mb-2">Message</label>
+                <label className="block text-sm font-medium text-black/60 mb-2">Message</label>
                 <textarea
-                  className="w-full bg-transparent border-0 border-b-2 border-black/10 px-0 py-3 text-sm outline-none focus:border-[rgb(var(--neon))] transition-colors min-h-[100px] resize-y"
+                  className="w-full bg-transparent border-0 border-b-2 border-black/10 px-0 py-3 text-sm text-black outline-none focus:border-[rgb(var(--neon))] transition-colors min-h-[100px] resize-y placeholder:text-black/40"
                   placeholder=""
                 />
-              </div>
-
-              {/* Submit Button */}
-              <div className="pt-4">
-                <RevoraButton href="#contact" textColor="text-black">
-                  Send Message
-                </RevoraButton>
               </div>
             </form>
           </div>

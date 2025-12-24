@@ -3,7 +3,7 @@
 import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
 
 export default function Marquee({
-    text = "DIGITAL AGENCY • WEB SOLUTIONS •",
+    text = "DİJİTAL AJANS • WEB ÇÖZÜMLERİ •",
     speed = 70,
     className,
 }: {

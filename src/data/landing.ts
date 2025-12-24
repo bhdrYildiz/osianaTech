@@ -1,41 +1,35 @@
 export const nav = [
-  { label: "HOME", href: "#home" },
-  { label: "PAGES", href: "#pages" },
-  { label: "SERVICES", href: "#services" },
-  { label: "PROJECTS", href: "#projects" },
-  { label: "BLOG", href: "#blog" },
-  { label: "CONTACT", href: "#contact" },
+  { label: "HAKKIMIZDA", href: "#about" },
+  { label: "HİZMETLER", href: "#services" },
+  { label: "TEKNOLOJİLER", href: "#ourtech" },
+  { label: "NEDEN BİZ?", href: "#why-choose-us" },
+  { label: "İLETİŞİM", href: "#contact" },
 ];
 
 export const services = [
   { 
-    title: "Digital Advertising", 
-    subtitle: "Performance, paid media, growth.",
-    image: "/web1.jpg",
+    title: "E-Ticaret", 
+    image: "/e-commerce.jpg",
     icon: "megaphone"
   },
   { 
     title: "UX/UI Design", 
-    subtitle: "Modern UI systems that convert.",
-    image: "/web1.jpg",
+    image: "/ux-ui.jpg",
     icon: "monitor"
   },
   { 
-    title: "Email Marketing", 
-    subtitle: "Engaging campaigns that convert.",
-    image: "/web1.jpg",
+    title: "Mobil Çözümler", 
+    image: "/mobile.jpg",
     icon: "envelope"
   },
   { 
-    title: "Web Development", 
-    subtitle: "Fast, SEO-ready websites.",
+    title: "Web Geliştirme", 
     image: "/web1.jpg",
     icon: "code"
   },
   { 
-    title: "Content Creation", 
-    subtitle: "Creative content that engages.",
-    image: "/web1.jpg",
+    title: "Bulut & Saas", 
+    image: "/saas.jpg",
     icon: "document"
   },
 ];

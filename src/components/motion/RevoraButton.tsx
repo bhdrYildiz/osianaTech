@@ -18,10 +18,14 @@ export default function RevoraButton({
     const textColor = customTextColor || (isBlack ? "text-white" : "text-white");
     const borderColor = isBlack ? "border-black/20" : "border-white/10";
 
+    const isClickable = href && href !== "#";
+    const MotionComponent = isClickable ? motion.a : motion.div;
+    const motionProps = isClickable ? { href } : {};
+
     return (
-        <motion.a
-            href={href}
-            className={`relative inline-flex items-center overflow-hidden rounded-full border ${borderColor} px-6 py-3`}
+        <MotionComponent
+            {...motionProps}
+            className={`relative inline-flex items-center overflow-hidden rounded-full border ${borderColor} px-6 py-3 ${!isClickable ? 'cursor-default' : ''}`}
             initial="rest"
             whileHover="hover"
             animate="rest"
@@ -54,6 +58,6 @@ export default function RevoraButton({
             >
                 {children}
             </motion.span>
-        </motion.a>
+        </MotionComponent>
     );
 }

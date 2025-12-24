@@ -12,7 +12,7 @@ export default function CenterBadge() {
             {/* İç logo - PNG resim */}
             <div className="relative w-12 h-12 flex items-center justify-center">
                 <img
-                    src="/icon-28.png"
+                    src="/logoNew.png"
                     alt="Logo"
                     className="w-full h-full object-contain"
                 />
@@ -35,11 +35,11 @@ export default function CenterBadge() {
                     fontSize="9"
                     fill="black"
                     fontWeight="600"
-                    letterSpacing="0.18em"
+                    letterSpacing="0.20em"
                     fontFamily="sans-serif"
                 >
                     <textPath href="#circle-path-center" startOffset="0%">
-                        CONSULTANTIS * DEVELOPMENTS * IT BUSINESS *
+                        DANIŞMANLIK * GELİŞTİRME * WEB ÇÖZÜMLERİ *
                     </textPath>
                 </text>
             </svg>

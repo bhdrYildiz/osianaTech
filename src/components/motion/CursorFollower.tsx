@@ -39,7 +39,7 @@ export default function CursorFollower() {
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed left-0 top-0 z-[9999] h-4 w-4 rounded-full bg-[rgb(var(--neon))] opacity-0 transition-opacity duration-200"
+      className="pointer-events-none fixed left-0 top-0 z-[9999] h-3 w-3 rounded-full bg-[rgb(var(--neon))] opacity-0 transition-opacity duration-200"
     />
   );
 }

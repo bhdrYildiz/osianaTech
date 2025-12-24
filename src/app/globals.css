@@ -3,9 +3,18 @@
 @tailwind utilities;
 
 :root{
-  --neon: 150, 235, 100; /* tailwind green-400 gibi */
+  --neon: 150, 235, 100; 
 }
 
 html { scroll-behavior: smooth; }
-body { background: #191919; color: #e5e7eb; } /* koyu tema hissi */
+body { background: #191919; color: #e5e7eb; }
+
+/* Scrollbar gizleme */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 

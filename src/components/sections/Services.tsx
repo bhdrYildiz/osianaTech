@@ -1,8 +1,9 @@
 "use client";
 
 import { services } from "@/data/landing";
-import { motion, AnimatePresence, useAnimationFrame, useMotionValue } from "framer-motion";
+import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
 import { useState, useRef } from "react";
+import Image from "next/image";
 
 function ScrollingText({
   text,
@@ -39,7 +40,7 @@ function ScrollingText({
     <div ref={containerRef} className={className}>
       <motion.div
         style={{ x }}
-        className="text-[80px] md:text-[100px] lg:text-[140px] font-bold tracking-tight select-none whitespace-nowrap"
+        className="text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] font-bold tracking-tight select-none whitespace-nowrap"
         animate={{
           opacity: isActive ? 0.3 : 0.05,
         }}
@@ -53,7 +54,6 @@ function ScrollingText({
   );
 }
 
-// SVG İkonlar
 const ServiceIcons: Record<string, JSX.Element> = {
   megaphone: (
     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -103,11 +103,11 @@ export default function Services() {
             {/* Sol taraf - Başlık */}
             <div className="flex flex-col justify-center">
               <div className="inline-flex items-center rounded-full bg-[rgb(var(--neon))] px-4 py-3 text-xs font-semibold tracking-[0.2em] uppercase text-black w-fit mb-6">
-                OUR SERVICES
+                HİZMETLERİMİZ
               </div>
 
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
-                Explore our creative digital solutions
+                Yaratıcı dijital çözümlerimizi keşfedin
                 <span className="inline-block rounded-full ml-2 w-3 h-3 bg-[rgb(var(--neon))]"></span>
               </h2>
             </div>
@@ -115,15 +115,15 @@ export default function Services() {
             {/* Sağ taraf - Açıklama */}
             <div className="flex flex-col justify-center">
               <p className="text-lg text-white/70 max-w-lg">
-                Designing and developing responsive, user friendly websites that align with a brand's goals.
+                Bir markanın hedefleriyle uyumlu, duyarlı ve kullanıcı dostu web siteleri tasarlıyor ve geliştiriyoruz.
               </p>
             </div>
           </div>
         </div>
 
         {/* Alt kısım - Animasyonlu servis kartları alanı */}
-        <div className="relative w-full pb-4">
-          <div className="flex gap-4 px-4 sm:px-6 lg:px-8 h-[400px]">
+        <div className="relative w-full pb-4 overflow-x-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="flex gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8 h-[300px] sm:h-[350px] md:h-[400px] min-w-max">
             {services.map((service, index) => {
               const isActive = active === index;
               const IconComponent = ServiceIcons[service.icon] || ServiceIcons.monitor;
@@ -133,7 +133,7 @@ export default function Services() {
                   key={service.title}
                   onMouseEnter={() => setActive(index)}
                   onMouseLeave={() => setActive(null)}
-                  className="relative group cursor-pointer flex-1"
+                  className="relative group cursor-pointer flex-1 min-w-[200px] sm:min-w-[250px] md:min-w-0"
                   initial={false}
                   animate={{
                     flex: isActive ? 1.5 : 1,
@@ -159,7 +159,7 @@ export default function Services() {
                     />
 
                     {/* Kart içeriği */}
-                    <div className="relative h-full flex flex-col justify-between p-6 z-20">
+                    <div className="relative h-full flex flex-col justify-between p-4 sm:p-6 z-20">
                       {/* Üst kısım - İkon */}
                       <motion.div
                         className={`
@@ -167,48 +167,41 @@ export default function Services() {
                           ${isActive ? "scale-110 rotate-6" : ""}
                         `}
                       >
-                        <div className="inline-flex items-center justify-center w-12 h-12 rounded-md border-2 border-[rgb(var(--neon))] bg-[rgb(var(--neon))]/55">
+                        <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-md border-2 border-[rgb(var(--neon))] bg-[rgb(var(--neon))]/55">
                           {IconComponent}
                         </div>
                       </motion.div>
 
                       {/* Alt kısım - Başlık */}
-                      <h3 className="text-xl font-semibold text-white text-center">
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white text-center">
                         {service.title}
                       </h3>
                     </div>
 
-                    {/* Hover'da gösterilecek resim ve animasyonlu şekiller */}
-                    <AnimatePresence>
-                      {isActive && (
-                        <>
-                          {/* Arka plan resmi */}
-                          <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }}
-                            className="absolute inset-0 z-0"
-                          >
-                            {/* Resim */}
-                            {service.image && (
-                              <motion.img
-                                src={service.image}
-                                alt={service.title}
-                                className="absolute inset-0 w-full h-full object-cover"
-                                initial={{ scale: 1.1, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 0.6 }}
-                                exit={{ scale: 1.1, opacity: 0 }}
-                                transition={{ duration: 0.5 }}
-                                onError={(e) => {
-                                  e.currentTarget.style.display = 'none';
-                                }}
-                              />
-                            )}
-                          </motion.div>
-                        </>
-                      )}
-                    </AnimatePresence>
+                    {/* Arka plan resmi - Her zaman render edilir ama görünürlüğü kontrol edilir */}
+                    {service.image && (
+                      <div className="absolute inset-0 z-0">
+                        <motion.div
+                          animate={{
+                            opacity: isActive ? 0.6 : 0,
+                            scale: isActive ? 1 : 1.1
+                          }}
+                          transition={{ duration: 0.4, ease: "easeOut" }}
+                          className="absolute inset-0"
+                          style={{ willChange: 'transform, opacity' }}
+                        >
+                          <Image
+                            src={service.image}
+                            alt={service.title}
+                            fill
+                            className="object-cover"
+                            quality={75}
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          />
+                        </motion.div>
+                      </div>
+                    )}
                   </motion.div>
                 </motion.div>
               );

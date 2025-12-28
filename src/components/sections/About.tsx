@@ -119,7 +119,7 @@ export default function About() {
           </div>
 
           <div className="mt-6 sm:mt-8">
-            <RevoraButton textColor="text-black">
+            <RevoraButton href="#contact" textColor="text-black">
               İLETİŞİME GEÇİN!
             </RevoraButton>
           </div>

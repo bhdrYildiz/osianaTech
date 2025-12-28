@@ -20,10 +20,8 @@ export default function WhyChooseUs() {
         offset: ["start end", "end start"],
     });
 
-    // Arka plan metni hareketi - yatay hareket (scroll aşağı -> sağa, yukarı -> sola)
     const backgroundTextX = useTransform(stepsScrollYProgress.scrollYProgress, [0, 1], [-200, 200]);
 
-    // İkonlar
     const OnboardingIcon = () => (
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[rgb(var(--neon))]">
             <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -148,7 +146,7 @@ export default function WhyChooseUs() {
                         </div>
 
                         <div className="mt-4">
-                            <RevoraButton textColor="text-black">
+                            <RevoraButton href="#contact" textColor="text-black">
                                 İLETİŞİME GEÇİN!
                             </RevoraButton>
                         </div>

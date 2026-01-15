@@ -6,9 +6,9 @@ import ScrollToTop from "@/components/motion/ScrollToTop";
 
 export const metadata: Metadata = {
   icons: {
-    icon: "/Logo3.png",
-    shortcut: "/Logo3.png",
-    apple: "/Logo3.png",
+    icon: "/Logo1.png",
+    shortcut: "/Logo1.png",
+    apple: "/Logo1.png",
   },
 };
 

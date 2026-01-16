@@ -97,10 +97,8 @@ export default function Services() {
   return (
     <section id="services" className="relative border-t border-white/10 bg-[#07090b] overflow-hidden">
       <div className="mx-auto max-w-7xl">
-        {/* Üst kısım - Sol ve sağ içerik */}
         <div className="px-4 sm:px-6 lg:px-8 pt-24 pb-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Sol taraf - Başlık */}
             <div className="flex flex-col justify-center">
               <div className="inline-flex items-center rounded-full bg-[rgb(var(--neon))] px-4 py-3 text-xs font-semibold tracking-[0.2em] uppercase text-black w-fit mb-6">
                 HİZMETLERİMİZ
@@ -112,7 +110,6 @@ export default function Services() {
               </h2>
             </div>
 
-            {/* Sağ taraf - Açıklama */}
             <div className="flex flex-col justify-center">
               <p className="text-lg text-white/70 max-w-lg">
                 Bir markanın hedefleriyle uyumlu, duyarlı ve kullanıcı dostu web siteleri tasarlıyor ve geliştiriyoruz.
@@ -121,7 +118,6 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Alt kısım - Animasyonlu servis kartları alanı */}
         <div className="relative w-full pb-4 overflow-x-auto scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <div className="flex gap-3 sm:gap-4 px-4 sm:px-6 lg:px-8 h-[300px] sm:h-[350px] md:h-[400px] min-w-max">
             {services.map((service, index) => {
@@ -151,7 +147,6 @@ export default function Services() {
                     `}
                     transition={{ duration: 0.4 }}
                   >
-                    {/* Arka plan metni - Scrolling text ile */}
                     <ScrollingText
                       text={service.title}
                       isActive={isActive}
@@ -160,7 +155,6 @@ export default function Services() {
 
                     {/* Kart içeriği */}
                     <div className="relative h-full flex flex-col justify-between p-4 sm:p-6 z-20">
-                      {/* Üst kısım - İkon */}
                       <motion.div
                         className={`
                           transition-all duration-300 text-[rgb(var(--neon))]
@@ -172,7 +166,6 @@ export default function Services() {
                         </div>
                       </motion.div>
 
-                      {/* Alt kısım - Başlık */}
                       <h3 className="text-base sm:text-lg md:text-xl font-semibold text-white text-center">
                         {service.title}
                       </h3>
